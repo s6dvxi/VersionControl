@@ -21,11 +21,13 @@ namespace UserMaintenance
             InitializeComponent();
             label1.Text = Resource1.FullName;
             button1.Text = Resource1.Add;
-                        
+            button2.Text = Resource1.WriteToFile;
+            button3.Text = Resource1.Delete;
+
             listBox1.DataSource = users;
             listBox1.ValueMember = "ID";
             listBox1.DisplayMember = "FullName";
-            button2.Text = Resource1.WriteToFile;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,6 +63,14 @@ namespace UserMaintenance
                     }
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+                User toBeDeleted = (User)listBox1.SelectedItem;
+                users.Remove(toBeDeleted);
+
         }
     }
 }
