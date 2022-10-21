@@ -22,19 +22,7 @@ namespace XMLHandler
         {
             InitializeComponent();
             dataGridView1.DataSource = Rates;
-            chartRateData.DataSource = Rates;
-
-            var mnbService = new MNBArfolyamServiceSoapClient();
-            var request = new GetExchangeRatesRequestBody()
-            {
-                currencyNames = comboBox1.SelectedItem.ToString(),
-                startDate = dateTimePicker1.Value.ToString(),
-                endDate = dateTimePicker2.Value.ToString(),
-            };
-
-            var response = mnbService.GetExchangeRates(request);
-            var result = response.GetExchangeRatesResult;
-            XmlHandling(result);
+            chartRateData.DataSource = Rates;            
             RefreshData();
 
         }
@@ -73,8 +61,19 @@ namespace XMLHandler
         }
         void RefreshData()
         {
-            ChartGenerate();
             Rates.Clear();
+            var mnbService = new MNBArfolyamServiceSoapClient();
+            var request = new GetExchangeRatesRequestBody()
+            {
+                currencyNames = comboBox1.SelectedItem.ToString(),
+                startDate = dateTimePicker1.Value.ToString(),
+                endDate = dateTimePicker2.Value.ToString(),
+            };
+
+            var response = mnbService.GetExchangeRates(request);
+            var result = response.GetExchangeRatesResult;
+            XmlHandling(result);            
+            ChartGenerate();            
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
