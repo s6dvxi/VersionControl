@@ -22,7 +22,9 @@ namespace XMLHandler
         {
             InitializeComponent();
             dataGridView1.DataSource = Rates;
-            chartRateData.DataSource = Rates;            
+            chartRateData.DataSource = Rates;
+            comboBox1.DataSource = Currencies;
+            var currencies = new GetCurrenciesRequest();
             RefreshData();
 
         }
