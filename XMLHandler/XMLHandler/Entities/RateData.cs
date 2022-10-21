@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace XMLHandler
 {
-    class RateData
+    public class RateData
     {
-        DateTime Date { get; set; }
-        string Currency { get; set; }
-        decimal Value { get; set; }
+        public DateTime Date { get; set; }
+        public string Currency { get; set; }
+        public decimal Value { get; set; }
     }
 }
