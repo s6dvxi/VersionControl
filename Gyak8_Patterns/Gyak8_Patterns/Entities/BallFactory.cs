@@ -8,7 +8,7 @@ namespace Gyak8_Patterns
 {
     public class BallFactory
     {
-        public Ball CreateNew()
+        public Toy CreateNew()
         {
             return new Ball();
         }
