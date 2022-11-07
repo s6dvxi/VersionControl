@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Gyak8_Patterns
 {
-    public class BallFactory : IToyFactory
+    public interface IToyFactory
     {
-        public Toy CreateNew()
-        {
-            return new Ball();
-        }
+        Toy CreateNew();
     }
 }
