@@ -25,7 +25,7 @@ namespace Gyak8_Patterns
 
         protected abstract void DrawImage(Graphics g);
 
-        public void MoveToy()
+        public virtual void MoveToy()
         {
             Left += 1;
         }
