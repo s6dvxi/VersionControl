@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Minta_ZH_II
 {
-    public class Drink
+    public class Drink : Product
     {
     }
 }

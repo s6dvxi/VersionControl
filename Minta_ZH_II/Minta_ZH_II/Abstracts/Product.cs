@@ -21,7 +21,7 @@ namespace Minta_ZH_II
         }
 
         private int _calories;
-        int Calories
+        public int Calories
         {
             get { return _calories; }
             set
@@ -30,10 +30,7 @@ namespace Minta_ZH_II
                 Display();
             }
         }
-        void Display()
-        {
-            Text = Title.ToString();
-        }
+        protected abstract void Display();
 
         public Product()
         {
