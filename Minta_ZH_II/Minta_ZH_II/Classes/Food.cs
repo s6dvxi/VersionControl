@@ -22,7 +22,7 @@ namespace Minta_ZH_II
 
         private void Food_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Title.ToString() + "/n" + Description.ToString());
+            MessageBox.Show(Title.ToString() + "\n" + Description.ToString());
         }
 
         protected override void Display()

@@ -14,11 +14,12 @@ namespace Minta_ZH_II
 {
     public partial class Form1 : Form
     {
-        List<Product> _products;
+        List<Product> _products = new List<Product>();
         public Form1()
         {
             InitializeComponent();
             GetProducts();
+            ColumnMaker();
         }
 
         private string GetXML(string filename)
@@ -61,6 +62,21 @@ namespace Minta_ZH_II
                     };
                     _products.Add(p);
                 }
+            }            
+        }
+        private void ColumnMaker()
+        {
+            var topPos = 0;
+            var sortedProducts = from x in _products
+                                 orderby x.Title
+                                 select x;
+
+            foreach (var item in sortedProducts)
+            {
+                item.Left = 2;
+                item.Top = topPos;
+                Controls.Add(item);
+                topPos += item.Height + 2;
             }
         }
     }
