@@ -12,6 +12,7 @@ namespace Minta_ZH_II
 {
     public partial class Form1 : Form
     {
+        List<Product> _products;
         public Form1()
         {
             InitializeComponent();
