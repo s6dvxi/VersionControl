@@ -25,6 +25,29 @@ namespace UnitTestExample.Test
 
             Assert.AreEqual(expectedResult, actualResult);
         }
+        /*  
+            Olyan eset, amikor nincs szám a jelszóban
+            Olyan eset, amikor nincs kisbetű a jelszóban
+            Olyan eset, amikor nincs nagybetű a jelszóban
+            Olyan eset, amikor túl rövid a jelszó
+            Olyan eset amikor megfelelő a jelszó
+         */
+        [
+            Test,
+            TestCase("aaAAAAAA", false),
+            TestCase("A1AAAAAA", false),
+            TestCase("a1aaaaaa", false),
+            TestCase("a1aaaaa", false),
+            TestCase("a1AAAAAA", true)
+        ]
+        public void TestValidatePassword(string password, bool expectedResult)
+        {
+            AccountController accountController = new AccountController();
+
+            var actualResult = accountController.ValidatePassword(password);
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
 
     }
 }
