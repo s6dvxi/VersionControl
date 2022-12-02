@@ -17,18 +17,21 @@ namespace MicroSimulation
         public List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         public List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
         Random rng = new Random(1234);
+        public List<int> ferfiLelekszam = new List<int>();
+        public List<int> noiLelekszam = new List<int>();
 
         public Form1()
         {
             InitializeComponent();
             Population = GetPopulation(@"C:\Temp\nép.csv");
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
-            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");            
-
+            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
         }
 
         public void Simulation()
         {
+            richTextBox1.Clear();
+
             int endyear = int.Parse(numericUpDown1.Value.ToString());
 
             for (int year = 2005; year <= endyear; year++)
@@ -45,8 +48,9 @@ namespace MicroSimulation
                 int nbrOfFemales = (from x in Population
                                     where x.Gender == Gender.Female && x.IsAlive
                                     select x).Count();
-                Console.WriteLine(
-                    string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
+
+                ferfiLelekszam.Add(nbrOfMales);
+                noiLelekszam.Add(nbrOfFemales);
             }
         }
 
