@@ -23,14 +23,15 @@ namespace MicroSimulation
             InitializeComponent();
             Population = GetPopulation(@"C:\Temp\nép.csv");
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
-            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
-            Simulation();
+            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");            
 
         }
 
         public void Simulation()
         {
-            for (int year = 2005; year <= 2024; year++)
+            int endyear = int.Parse(numericUpDown1.Value.ToString());
+
+            for (int year = 2005; year <= endyear; year++)
             {
 
                 for (int i = 0; i < Population.Count; i++)
@@ -142,6 +143,11 @@ namespace MicroSimulation
             }
 
             return population;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Simulation();
         }
     }
 }
