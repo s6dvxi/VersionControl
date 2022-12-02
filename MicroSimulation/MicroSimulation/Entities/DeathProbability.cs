@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MicroSimulation
 {
-    class DeathProbability
+    public class DeathProbability
     {
         public int Age { get; set; }
         public Gender Gender { get; set; }
